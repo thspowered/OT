@@ -1,0 +1,618 @@
+.opportunities-page {
+  display: grid;
+  gap: 18px;
+}
+
+.opportunities-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.sort-caption {
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.opportunities-header h1 {
+  color: var(--text);
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.opportunities-header p:last-child {
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.critical-banner {
+  border: 1px solid color-mix(in srgb, var(--danger) 28%, transparent);
+  border-radius: var(--radius);
+  background: var(--danger-soft);
+  color: var(--danger);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 16px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.metric-card {
+  min-height: 104px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px;
+  box-shadow: var(--shadow-soft);
+}
+
+.metric-card.danger {
+  border-color: color-mix(in srgb, var(--danger) 24%, var(--border));
+  background: color-mix(in srgb, var(--danger-soft) 55%, var(--surface));
+}
+
+.metric-card.warning {
+  border-color: color-mix(in srgb, var(--warning) 24%, var(--border));
+  background: color-mix(in srgb, var(--warning-soft) 55%, var(--surface));
+}
+
+.metric-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius);
+  display: grid;
+  place-items: center;
+  background: var(--surface-raised);
+  color: var(--text-muted);
+}
+
+.metric-card.danger .metric-icon,
+.metric-card.danger strong {
+  color: var(--danger);
+}
+
+.metric-card.warning .metric-icon,
+.metric-card.warning strong {
+  color: var(--warning);
+}
+
+.metric-card strong,
+.metric-card p,
+.metric-card small {
+  display: block;
+}
+
+.metric-card strong {
+  color: var(--text);
+  font-size: 27px;
+  line-height: 1;
+}
+
+.metric-card p {
+  color: var(--text);
+  font-weight: 800;
+  margin-top: 4px;
+}
+
+.metric-card small {
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+
+.opportunities-table-shell {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.table-toolbar {
+  min-height: 48px;
+  border-bottom: 1px solid var(--border-soft);
+  background: var(--surface-muted);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 0 18px;
+  color: var(--text-muted);
+  font-weight: 800;
+}
+
+.table-toolbar label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toolbar-filters {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 7px;
+  min-width: 0;
+}
+
+.toolbar-filters select,
+.toolbar-clear {
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text-muted);
+  font-weight: 800;
+}
+
+.toolbar-filters select {
+  max-width: 176px;
+  min-width: 128px;
+  padding: 0 9px;
+}
+
+.toolbar-clear {
+  padding: 0 10px;
+}
+
+.toolbar-clear:not(:disabled) {
+  color: var(--primary-strong);
+}
+
+.toolbar-clear:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.opportunities-list {
+  display: grid;
+}
+
+.table-state {
+  min-height: 180px;
+  display: grid;
+  place-items: center;
+  color: var(--text-muted);
+  font-weight: 800;
+  padding: 24px;
+}
+
+.error-state {
+  color: var(--danger);
+  background: var(--danger-soft);
+}
+
+.opportunity-row {
+  display: grid;
+  grid-template-columns: 28px 108px minmax(260px, 1fr) max-content minmax(156px, max-content) 92px minmax(420px, max-content);
+  align-items: center;
+  gap: 14px;
+  border-bottom: 1px solid var(--border-soft);
+  padding: 14px 18px;
+}
+
+.opportunity-row > div {
+  min-width: 0;
+}
+
+.opportunity-row:last-child {
+  border-bottom: 0;
+}
+
+.opportunity-row.critical {
+  box-shadow: inset 3px 0 0 var(--danger);
+}
+
+.opportunity-row.warning {
+  box-shadow: inset 3px 0 0 var(--warning);
+}
+
+.select-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inactivity-pill {
+  width: 100%;
+  min-height: 58px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-muted);
+  color: var(--text-muted);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 5px;
+  padding: 8px 11px;
+}
+
+.inactivity-pill strong {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.inactivity-pill span {
+  grid-column: 2;
+  font-size: 12px;
+}
+
+.inactivity-pill.critical {
+  border-color: color-mix(in srgb, var(--danger) 25%, var(--border));
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.inactivity-pill.warning {
+  border-color: color-mix(in srgb, var(--warning) 28%, var(--border));
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.opportunity-title-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.opportunity-title-button {
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 16px;
+  font-weight: 900;
+  padding: 0;
+  text-align: left;
+}
+
+.opportunity-title-button:hover {
+  color: var(--primary-strong);
+}
+
+.opportunity-title-line strong {
+  color: var(--text);
+  font-size: 16px;
+}
+
+.opportunity-title-line span {
+  border-radius: 6px;
+  background: var(--primary-soft);
+  color: var(--primary-strong);
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.opportunity-main-cell p {
+  color: var(--text-muted);
+  font-weight: 700;
+  margin-top: 7px;
+}
+
+.opportunity-main-cell p span {
+  color: var(--text-soft);
+  margin: 0 5px;
+}
+
+.value-cell {
+  color: var(--text);
+  font-weight: 900;
+  font-size: clamp(14px, 1vw, 16px);
+  white-space: nowrap;
+  text-align: right;
+}
+
+.owner-cell {
+  color: var(--text-muted);
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.owner-cell span {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--primary-soft);
+  color: var(--primary-strong);
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.probability-pill {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-muted);
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.probability-pill.critical {
+  border-color: color-mix(in srgb, var(--danger) 25%, var(--border));
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.probability-pill.warning {
+  border-color: color-mix(in srgb, var(--warning) 28%, var(--border));
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.row-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.row-actions button {
+  height: 38px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-raised);
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.row-actions button:first-child {
+  border-color: transparent;
+  background: var(--primary);
+  color: #fff;
+}
+
+.pagination-bar {
+  min-height: 58px;
+  border-top: 1px solid var(--border-soft);
+  background: var(--surface-muted);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 18px;
+  font-weight: 800;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.pagination-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pagination-dots {
+  color: var(--text-soft);
+  padding: 0 3px;
+}
+
+.pagination-controls button {
+  min-width: 36px;
+  height: 34px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text-muted);
+  padding: 0 11px;
+  font-weight: 800;
+}
+
+.pagination-controls button.active {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #fff;
+}
+
+.pagination-controls button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+@media (max-width: 1180px) {
+  .metrics-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .opportunity-row {
+    grid-template-columns: 28px 96px minmax(220px, 1fr) minmax(98px, auto) minmax(82px, auto);
+    grid-template-areas:
+      "select days main value probability"
+      "select days owner actions actions";
+    align-items: center;
+  }
+
+  .select-cell {
+    grid-area: select;
+  }
+
+  .opportunity-row > div:nth-child(2) {
+    grid-area: days;
+  }
+
+  .opportunity-main-cell {
+    grid-area: main;
+  }
+
+  .value-cell {
+    grid-area: value;
+  }
+
+  .opportunity-row > div:nth-child(5) {
+    grid-area: owner;
+  }
+
+  .opportunity-row > div:nth-child(6) {
+    grid-area: probability;
+  }
+
+  .opportunity-row > div:nth-child(7) {
+    grid-area: actions;
+  }
+
+  .row-actions button {
+    padding: 0 10px;
+  }
+
+  .row-actions button:nth-child(2),
+  .row-actions button:nth-child(3) {
+    width: 38px;
+    flex: 0 0 38px;
+    padding: 0;
+  }
+
+  .row-actions button:nth-child(2) {
+    font-size: 0;
+    gap: 0;
+  }
+
+  .row-actions button:nth-child(3) {
+    font-size: 0;
+    gap: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .opportunities-header {
+    flex-direction: column;
+  }
+
+  .critical-banner {
+    white-space: normal;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .table-toolbar {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 12px 14px;
+  }
+
+  .toolbar-filters {
+    order: 3;
+    flex-basis: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .toolbar-filters select {
+    flex: 1 1 150px;
+    max-width: none;
+  }
+
+  .opportunity-row {
+    grid-template-columns: 24px 88px minmax(0, 1fr) auto;
+    grid-template-areas:
+      "select days main probability"
+      "select days owner value"
+      "actions actions actions actions";
+    gap: 10px 12px;
+    padding: 13px;
+  }
+
+  .value-cell {
+    text-align: left;
+  }
+
+  .opportunity-row > div:nth-child(6) {
+    grid-area: probability;
+    justify-self: end;
+    align-self: start;
+  }
+
+  .row-actions {
+    justify-content: stretch;
+  }
+
+  .row-actions button {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .row-actions button:first-child {
+    font-size: 0;
+    gap: 0;
+  }
+
+  .pagination-bar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .pagination-controls {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 520px) {
+  .toolbar-filters select,
+  .toolbar-clear {
+    flex: 1 1 100%;
+  }
+
+  .metric-card {
+    min-height: auto;
+  }
+
+  .opportunity-row {
+    grid-template-columns: 22px minmax(0, 1fr);
+    grid-template-areas:
+      "select main"
+      "select days"
+      "select owner"
+      "select value"
+      "select actions";
+  }
+
+  .inactivity-pill {
+    max-width: 150px;
+  }
+
+  .opportunity-row > div:nth-child(6) {
+    justify-self: start;
+  }
+}
