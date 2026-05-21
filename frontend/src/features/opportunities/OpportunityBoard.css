@@ -1,0 +1,521 @@
+.opportunities-page {
+  display: grid;
+  gap: 18px;
+}
+
+.opportunities-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.sort-caption {
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.opportunities-header h1 {
+  color: var(--text);
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.opportunities-header p:last-child {
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.critical-banner {
+  border: 1px solid color-mix(in srgb, var(--danger) 28%, transparent);
+  border-radius: var(--radius);
+  background: var(--danger-soft);
+  color: var(--danger);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 16px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.filter-bar,
+.active-filters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-bar button,
+.active-filters button,
+.active-filters span {
+  height: 36px;
+  border-radius: var(--radius);
+  font-weight: 800;
+  padding: 0 13px;
+}
+
+.filter-bar button,
+.active-filters button {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+}
+
+.filter-bar button.active,
+.filter-bar .filter-action,
+.active-filters span {
+  border: 0;
+  background: var(--primary);
+  color: #fff;
+}
+
+.filter-bar .filter-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-spacer {
+  flex: 1;
+}
+
+.active-filters span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.active-filters .clear-filter {
+  border: 0;
+  background: transparent;
+  color: var(--primary-strong);
+  padding: 0 4px;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.metric-card {
+  min-height: 104px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px;
+  box-shadow: var(--shadow-soft);
+}
+
+.metric-card.danger {
+  border-color: color-mix(in srgb, var(--danger) 24%, var(--border));
+  background: color-mix(in srgb, var(--danger-soft) 55%, var(--surface));
+}
+
+.metric-card.warning {
+  border-color: color-mix(in srgb, var(--warning) 24%, var(--border));
+  background: color-mix(in srgb, var(--warning-soft) 55%, var(--surface));
+}
+
+.metric-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius);
+  display: grid;
+  place-items: center;
+  background: var(--surface-raised);
+  color: var(--text-muted);
+}
+
+.metric-card.danger .metric-icon,
+.metric-card.danger strong {
+  color: var(--danger);
+}
+
+.metric-card.warning .metric-icon,
+.metric-card.warning strong {
+  color: var(--warning);
+}
+
+.metric-card strong,
+.metric-card p,
+.metric-card small {
+  display: block;
+}
+
+.metric-card strong {
+  color: var(--text);
+  font-size: 27px;
+  line-height: 1;
+}
+
+.metric-card p {
+  color: var(--text);
+  font-weight: 800;
+  margin-top: 4px;
+}
+
+.metric-card small {
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+
+.opportunities-table-shell {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.table-toolbar {
+  min-height: 48px;
+  border-bottom: 1px solid var(--border-soft);
+  background: var(--surface-muted);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  color: var(--text-muted);
+  font-weight: 800;
+}
+
+.table-toolbar label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.opportunities-list {
+  display: grid;
+}
+
+.opportunity-row {
+  display: grid;
+  grid-template-columns: 28px minmax(82px, 108px) minmax(220px, 1.8fr) minmax(104px, 0.7fr) minmax(126px, 0.8fr) minmax(78px, 0.45fr) minmax(176px, 1fr);
+  align-items: center;
+  gap: 14px;
+  border-bottom: 1px solid var(--border-soft);
+  padding: 14px 18px;
+}
+
+.opportunity-row:last-child {
+  border-bottom: 0;
+}
+
+.opportunity-row.critical {
+  box-shadow: inset 3px 0 0 var(--danger);
+}
+
+.opportunity-row.warning {
+  box-shadow: inset 3px 0 0 var(--warning);
+}
+
+.select-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inactivity-pill {
+  width: 100%;
+  min-height: 58px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-muted);
+  color: var(--text-muted);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 5px;
+  padding: 8px 11px;
+}
+
+.inactivity-pill strong {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.inactivity-pill span {
+  grid-column: 2;
+  font-size: 12px;
+}
+
+.inactivity-pill.critical {
+  border-color: color-mix(in srgb, var(--danger) 25%, var(--border));
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.inactivity-pill.warning {
+  border-color: color-mix(in srgb, var(--warning) 28%, var(--border));
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.opportunity-title-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.opportunity-title-line strong {
+  color: var(--text);
+  font-size: 16px;
+}
+
+.opportunity-title-line span {
+  border-radius: 6px;
+  background: var(--primary-soft);
+  color: var(--primary-strong);
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.opportunity-main-cell p {
+  color: var(--text-muted);
+  font-weight: 700;
+  margin-top: 7px;
+}
+
+.opportunity-main-cell p span {
+  color: var(--text-soft);
+  margin: 0 5px;
+}
+
+.value-cell {
+  color: var(--text);
+  font-weight: 900;
+  font-size: clamp(14px, 1vw, 16px);
+  white-space: nowrap;
+  text-align: right;
+}
+
+.owner-cell {
+  color: var(--text-muted);
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.owner-cell span {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--primary-soft);
+  color: var(--primary-strong);
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.probability-pill {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-muted);
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.probability-pill.critical {
+  border-color: color-mix(in srgb, var(--danger) 25%, var(--border));
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.probability-pill.warning {
+  border-color: color-mix(in srgb, var(--warning) 28%, var(--border));
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.row-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.row-actions button {
+  height: 38px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-raised);
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.row-actions button:first-child {
+  border-color: transparent;
+  background: var(--primary);
+  color: #fff;
+}
+
+@media (max-width: 1180px) {
+  .metrics-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .opportunity-row {
+    grid-template-columns: 28px 96px minmax(220px, 1fr) minmax(98px, auto) minmax(82px, auto);
+    grid-template-areas:
+      "select days main value probability"
+      "select days owner actions actions";
+    align-items: center;
+  }
+
+  .select-cell {
+    grid-area: select;
+  }
+
+  .opportunity-row > div:nth-child(2) {
+    grid-area: days;
+  }
+
+  .opportunity-main-cell {
+    grid-area: main;
+  }
+
+  .value-cell {
+    grid-area: value;
+  }
+
+  .opportunity-row > div:nth-child(5) {
+    grid-area: owner;
+  }
+
+  .opportunity-row > div:nth-child(6) {
+    grid-area: probability;
+  }
+
+  .opportunity-row > div:nth-child(7) {
+    grid-area: actions;
+  }
+
+  .row-actions button {
+    padding: 0 10px;
+  }
+
+  .row-actions button:nth-child(2),
+  .row-actions button:nth-child(3) {
+    width: 38px;
+    padding: 0;
+  }
+
+  .row-actions button:nth-child(2) {
+    font-size: 0;
+    gap: 0;
+  }
+
+  .row-actions button:nth-child(3) {
+    font-size: 0;
+    gap: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .opportunities-header {
+    flex-direction: column;
+  }
+
+  .critical-banner {
+    white-space: normal;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-spacer {
+    display: none;
+  }
+
+  .opportunity-row {
+    grid-template-columns: 24px 88px minmax(0, 1fr) auto;
+    grid-template-areas:
+      "select days main probability"
+      "select days owner value"
+      "actions actions actions actions";
+    gap: 10px 12px;
+    padding: 13px;
+  }
+
+  .value-cell {
+    text-align: left;
+  }
+
+  .opportunity-row > div:nth-child(6) {
+    grid-area: probability;
+    justify-self: end;
+    align-self: start;
+  }
+
+  .row-actions {
+    justify-content: stretch;
+  }
+
+  .row-actions button {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .row-actions button:first-child {
+    font-size: 0;
+    gap: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .filter-bar button,
+  .active-filters button,
+  .active-filters span {
+    flex: 1 1 auto;
+  }
+
+  .metric-card {
+    min-height: auto;
+  }
+
+  .opportunity-row {
+    grid-template-columns: 22px minmax(0, 1fr);
+    grid-template-areas:
+      "select main"
+      "select days"
+      "select owner"
+      "select value"
+      "select actions";
+  }
+
+  .inactivity-pill {
+    max-width: 150px;
+  }
+
+  .opportunity-row > div:nth-child(6) {
+    justify-self: start;
+  }
+}
