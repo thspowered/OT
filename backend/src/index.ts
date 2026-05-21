@@ -4,8 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import { BusinessCaseResponse } from './types';
 import { getBusinessCases } from './controller/bussiness-case.controller';
-import { getTasks } from './controller/tasks.controller';
-import { createTask } from './controller/tasks.controller';
+import { getTasks, createTask, getTasksByBusinessCaseId } from './controller/tasks.controller';
 
 
 const app = express();
@@ -49,6 +48,8 @@ app.get('/api/hello', (req, res) => {
 app.get('/api/business-cases', getBusinessCases);
 app.get('/api/tasks', getTasks);
 app.post('/api/tasks', createTask);
+app.get('/api/business-cases/:businessCaseId/tasks', getTasksByBusinessCaseId);
+    
 
 
 // Start server

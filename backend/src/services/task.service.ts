@@ -10,6 +10,7 @@ export interface TaskDTO {
     dueDate: string | null;
     completed: boolean;
     taskType: TaskType;
+    bussinessCaseId?: number;
 }
 
 export interface createTaskDTO {
@@ -18,6 +19,7 @@ export interface createTaskDTO {
     dueDate: string | null;
     completed: boolean;
     taskType: TaskType;
+    bussinessCaseId?: number;
 }
 
 export class TaskService {
@@ -51,6 +53,11 @@ export class TaskService {
         
         return newTask;
     }
+
+    public async getTasksByBusinessCaseId(businessCaseId: number): Promise<TaskDTO[]> {
+        const tasks = await this.getAllTasks();
+        return tasks.filter(task => task.bussinessCaseId === businessCaseId);
+    }   
 
 }
 

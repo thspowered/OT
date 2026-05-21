@@ -25,3 +25,16 @@ export const getTasks = async (req: Request, res: Response) => {
         res.status(500).json({ success: false, error: 'Internal server error while fetching tasks' });
     }
 };
+
+
+export const getTasksByBusinessCaseId = async (req: Request, res: Response) => {
+    try {
+        const businessCaseId = parseInt(req.params.businessCaseId, 10);
+        const tasks = await taskService.getTasksByBusinessCaseId(businessCaseId);
+        res.status(200).json({ success: true, data: tasks });
+    }
+    catch (error) {
+        console.error('Error fetching tasks by business case ID:', error);
+        res.status(500).json({ success: false, error: 'Internal server error while fetching tasks by business case ID' });
+    }
+};
