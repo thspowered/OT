@@ -56,7 +56,15 @@ function MetricCard({ metric }: { metric: OpportunityMetric }) {
   );
 }
 
-function OpportunityRow({ onOpen, opportunity }: { onOpen: (opportunity: Opportunity) => void; opportunity: Opportunity }) {
+function OpportunityRow({
+  onCreateTask,
+  onOpen,
+  opportunity
+}: {
+  onCreateTask: (opportunity: Opportunity) => void;
+  onOpen: (opportunity: Opportunity) => void;
+  opportunity: Opportunity;
+}) {
   return (
     <article className={`opportunity-row ${opportunity.urgency}`} onDoubleClick={() => onOpen(opportunity)}>
       <div className="select-cell">
@@ -103,7 +111,13 @@ function OpportunityRow({ onOpen, opportunity }: { onOpen: (opportunity: Opportu
             <Icon name="phone" size={16} />
             Zavolat
           </button>
-          <button type="button">
+          <button
+            onClick={(event) => {
+              event.stopPropagation();
+              onCreateTask(opportunity);
+            }}
+            type="button"
+          >
             <Icon name="calendar" size={16} />
             Naplanovat ukol
           </button>
@@ -124,6 +138,7 @@ export function OpportunityBoard({ searchQuery }: OpportunityBoardProps) {
   const [error, setError] = useState('');
   const [filters, setFilters] = useState<OpportunityFilters>(defaultFilters);
   const [selectedOpportunity, setSelectedOpportunity] = useState<Opportunity | null>(null);
+  const [openTaskModalOnDetail, setOpenTaskModalOnDetail] = useState(false);
 
   useEffect(() => {
     let isActive = true;
@@ -186,8 +201,27 @@ export function OpportunityBoard({ searchQuery }: OpportunityBoardProps) {
     setCurrentPage(1);
   };
 
+  const openOpportunityDetail = (opportunity: Opportunity) => {
+    setOpenTaskModalOnDetail(false);
+    setSelectedOpportunity(opportunity);
+  };
+
+  const openTaskCreation = (opportunity: Opportunity) => {
+    setOpenTaskModalOnDetail(true);
+    setSelectedOpportunity(opportunity);
+  };
+
   if (selectedOpportunity) {
-    return <OpportunityDetail opportunity={selectedOpportunity} onBack={() => setSelectedOpportunity(null)} />;
+    return (
+      <OpportunityDetail
+        initialTaskModalOpen={openTaskModalOnDetail}
+        opportunity={selectedOpportunity}
+        onBack={() => {
+          setOpenTaskModalOnDetail(false);
+          setSelectedOpportunity(null);
+        }}
+      />
+    );
   }
 
   return (
@@ -273,7 +307,12 @@ export function OpportunityBoard({ searchQuery }: OpportunityBoardProps) {
             <div className="opportunities-list">
               {visibleOpportunities.length > 0 ? (
                 visibleOpportunities.map((opportunity) => (
-                  <OpportunityRow key={opportunity.id} onOpen={setSelectedOpportunity} opportunity={opportunity} />
+                  <OpportunityRow
+                    key={opportunity.id}
+                    onCreateTask={openTaskCreation}
+                    onOpen={openOpportunityDetail}
+                    opportunity={opportunity}
+                  />
                 ))
               ) : (
                 <div className="table-state">Zadne prilezitosti neodpovidaji filtrum.</div>

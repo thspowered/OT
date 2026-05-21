@@ -47,5 +47,23 @@
     "completed": false,
     "taskType": "WORK",
     "bussinessCaseId": 100
+  },
+  {
+    "id": 1779355326193,
+    "title": "dadas",
+    "description": "adsdas",
+    "dueDate": "2026-05-29T09:22:00.000Z",
+    "completed": false,
+    "taskType": "Call",
+    "bussinessCaseId": 225
+  },
+  {
+    "id": 1779355373386,
+    "title": "adasdasdasdasd",
+    "description": "asasdasda",
+    "dueDate": "2026-05-22T09:22:00.000Z",
+    "completed": false,
+    "taskType": "Other",
+    "bussinessCaseId": 225
   }
 ]
