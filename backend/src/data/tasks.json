@@ -1,0 +1,10 @@
+[
+  {
+    "id": 1779353466089,
+    "title": "Dokončit Raynet projekt",
+    "description": "Napsat endpointy pro ukládání a načítání tasků z JSON souboru.",
+    "dueDate": "2026-05-25T12:00:00Z",
+    "completed": false,
+    "taskType": "WORK"
+  }
+]

@@ -3,7 +3,6 @@ import path from 'path';
 import { BusinessCaseResponse } from '../types';
 import { BusinessCase } from '../types';
 
-
 interface BusinessCaseDTO {
     id: number;
     code: string;
