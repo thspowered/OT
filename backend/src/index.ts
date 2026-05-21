@@ -3,6 +3,9 @@ import cors from 'cors';
 import fs from 'fs';
 import path from 'path';
 import { BusinessCaseResponse } from './types';
+import { getBusinessCases } from './controller/bussiness-case.controller';
+import { getTasks, createTask, getTasksByBusinessCaseId, updateTask } from './controller/tasks.controller';
+
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -10,6 +13,7 @@ const PORT = process.env.PORT || 3001;
 // Middleware
 app.use(cors());
 app.use(express.json());
+
 
 // Data endpoint
 app.get('/api/hello', (req, res) => {
@@ -40,6 +44,13 @@ app.get('/api/hello', (req, res) => {
     });
   }
 });
+
+app.get('/api/business-cases', getBusinessCases);
+app.get('/api/tasks', getTasks);
+app.post('/api/tasks', createTask);
+app.get('/api/business-cases/:businessCaseId/tasks', getTasksByBusinessCaseId);
+app.put('/api/tasks/:taskId', updateTask);
+
 
 // Start server
 app.listen(PORT, () => {
