@@ -10,6 +10,7 @@ import './App.css';
 function App() {
   const [user, setUser] = useState<AuthUser | null>(null);
   const [activeView, setActiveView] = useState<AppView>('dashboard');
+  const [searchQuery, setSearchQuery] = useState('');
   const { theme, toggleTheme } = useTheme();
 
   const handleLogin = async (email: string, password: string) => {
@@ -33,14 +34,16 @@ function App() {
       activeView={activeView}
       onNavigate={setActiveView}
       onLogout={handleLogout}
+      onSearchChange={setSearchQuery}
       onToggleTheme={toggleTheme}
+      searchQuery={searchQuery}
       theme={theme}
       user={user}
     >
       {activeView === 'dashboard' ? (
         <DashboardPage onOpenOpportunities={() => setActiveView('opportunities')} />
       ) : (
-        <OpportunityBoard />
+        <OpportunityBoard searchQuery={searchQuery} />
       )}
     </AppShell>
   );

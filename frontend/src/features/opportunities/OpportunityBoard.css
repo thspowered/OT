@@ -44,60 +44,6 @@
   white-space: nowrap;
 }
 
-.filter-bar,
-.active-filters {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.filter-bar button,
-.active-filters button,
-.active-filters span {
-  height: 36px;
-  border-radius: var(--radius);
-  font-weight: 800;
-  padding: 0 13px;
-}
-
-.filter-bar button,
-.active-filters button {
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--text-muted);
-}
-
-.filter-bar button.active,
-.filter-bar .filter-action,
-.active-filters span {
-  border: 0;
-  background: var(--primary);
-  color: #fff;
-}
-
-.filter-bar .filter-action {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.filter-spacer {
-  flex: 1;
-}
-
-.active-filters span {
-  display: inline-flex;
-  align-items: center;
-}
-
-.active-filters .clear-filter {
-  border: 0;
-  background: transparent;
-  color: var(--primary-strong);
-  padding: 0 4px;
-}
-
 .metrics-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -185,6 +131,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 14px;
   padding: 0 18px;
   color: var(--text-muted);
   font-weight: 800;
@@ -196,8 +143,60 @@
   gap: 10px;
 }
 
+.toolbar-filters {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 7px;
+  min-width: 0;
+}
+
+.toolbar-filters select,
+.toolbar-clear {
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text-muted);
+  font-weight: 800;
+}
+
+.toolbar-filters select {
+  max-width: 176px;
+  min-width: 128px;
+  padding: 0 9px;
+}
+
+.toolbar-clear {
+  padding: 0 10px;
+}
+
+.toolbar-clear:not(:disabled) {
+  color: var(--primary-strong);
+}
+
+.toolbar-clear:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
 .opportunities-list {
   display: grid;
+}
+
+.table-state {
+  min-height: 180px;
+  display: grid;
+  place-items: center;
+  color: var(--text-muted);
+  font-weight: 800;
+  padding: 24px;
+}
+
+.error-state {
+  color: var(--danger);
+  background: var(--danger-soft);
 }
 
 .opportunity-row {
@@ -272,6 +271,21 @@
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
+}
+
+.opportunity-title-button {
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 16px;
+  font-weight: 900;
+  padding: 0;
+  text-align: left;
+}
+
+.opportunity-title-button:hover {
+  color: var(--primary-strong);
 }
 
 .opportunity-title-line strong {
@@ -382,6 +396,60 @@
   color: #fff;
 }
 
+.pagination-bar {
+  min-height: 58px;
+  border-top: 1px solid var(--border-soft);
+  background: var(--surface-muted);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 18px;
+  font-weight: 800;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.pagination-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pagination-dots {
+  color: var(--text-soft);
+  padding: 0 3px;
+}
+
+.pagination-controls button {
+  min-width: 36px;
+  height: 34px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text-muted);
+  padding: 0 11px;
+  font-weight: 800;
+}
+
+.pagination-controls button.active {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #fff;
+}
+
+.pagination-controls button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
 @media (max-width: 1180px) {
   .metrics-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -458,8 +526,22 @@
     grid-template-columns: 1fr;
   }
 
-  .filter-spacer {
-    display: none;
+  .table-toolbar {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 12px 14px;
+  }
+
+  .toolbar-filters {
+    order: 3;
+    flex-basis: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .toolbar-filters select {
+    flex: 1 1 150px;
+    max-width: none;
   }
 
   .opportunity-row {
@@ -495,13 +577,21 @@
     font-size: 0;
     gap: 0;
   }
+
+  .pagination-bar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .pagination-controls {
+    justify-content: flex-start;
+  }
 }
 
 @media (max-width: 520px) {
-  .filter-bar button,
-  .active-filters button,
-  .active-filters span {
-    flex: 1 1 auto;
+  .toolbar-filters select,
+  .toolbar-clear {
+    flex: 1 1 100%;
   }
 
   .metric-card {

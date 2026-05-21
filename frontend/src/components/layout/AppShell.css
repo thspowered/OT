@@ -94,6 +94,19 @@
   font-size: 14px;
 }
 
+.shell-search input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--text);
+}
+
+.shell-search input::placeholder {
+  color: var(--text-soft);
+}
+
 .shell-actions {
   display: flex;
   align-items: center;

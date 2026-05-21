@@ -11,7 +11,9 @@ interface AppShellProps {
   children: ReactNode;
   onLogout: () => void;
   onNavigate: (view: AppView) => void;
+  onSearchChange: (query: string) => void;
   onToggleTheme: () => void;
+  searchQuery: string;
   theme: Theme;
   user: AuthUser;
 }
@@ -26,7 +28,9 @@ export function AppShell({
   children,
   onLogout,
   onNavigate,
+  onSearchChange,
   onToggleTheme,
+  searchQuery,
   theme,
   user
 }: AppShellProps) {
@@ -59,10 +63,16 @@ export function AppShell({
 
       <div className="shell-main">
         <header className="shell-topbar">
-          <div className="shell-search">
+          <label className="shell-search">
             <Icon name="search" size={17} />
-            <span>Vyhladat prilezitost, firmu alebo obchodnika</span>
-          </div>
+            <input
+              aria-label="Vyhladat prilezitost, firmu alebo obchodnika"
+              onChange={(event) => onSearchChange(event.target.value)}
+              placeholder="Vyhladat prilezitost, firmu alebo obchodnika"
+              type="search"
+              value={searchQuery}
+            />
+          </label>
 
           <div className="shell-actions">
             <button className="icon-button" onClick={onToggleTheme} type="button" aria-label="Prepnout tema">

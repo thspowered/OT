@@ -3,6 +3,7 @@ import { Opportunity, OpportunityMetric } from './types';
 export const opportunities: Opportunity[] = [
   {
     id: 1,
+    code: 'OP-26-ERP',
     title: 'ERP system - implementace',
     company: 'Skoda Auto a.s.',
     activityType: 'Volani',
@@ -17,6 +18,7 @@ export const opportunities: Opportunity[] = [
   },
   {
     id: 2,
+    code: 'OP-26-CLOUD',
     title: 'Cloudova migrace - faze 2',
     company: 'CEZ Distribuce',
     activityType: 'E-mail',
@@ -31,6 +33,7 @@ export const opportunities: Opportunity[] = [
   },
   {
     id: 3,
+    code: 'OP-26-M365',
     title: 'Licence MS 365 - enterprise',
     company: 'Alza.cz a.s.',
     activityType: 'Schuzka',
@@ -45,6 +48,7 @@ export const opportunities: Opportunity[] = [
   },
   {
     id: 4,
+    code: 'OP-26-CRM',
     title: 'CRM integrace - Salesforce',
     company: 'Komercni banka',
     activityType: 'Ukol',
@@ -59,6 +63,7 @@ export const opportunities: Opportunity[] = [
   },
   {
     id: 5,
+    code: 'OP-26-AUDIT',
     title: 'Bezpecnostni audit 2026',
     company: 'O2 Czech Republic',
     activityType: 'Poznamka',
@@ -73,6 +78,7 @@ export const opportunities: Opportunity[] = [
   },
   {
     id: 6,
+    code: 'OP-26-BI',
     title: 'Datovy sklad - BI platforma',
     company: 'Lidl Ceska republika',
     activityType: 'E-mail',
@@ -87,6 +93,7 @@ export const opportunities: Opportunity[] = [
   },
   {
     id: 7,
+    code: 'OP-26-HR',
     title: 'HR software - rozsireni',
     company: 'Vodafone CZ',
     activityType: 'Volani',
@@ -101,6 +108,7 @@ export const opportunities: Opportunity[] = [
   },
   {
     id: 8,
+    code: 'OP-26-NET',
     title: 'Sitova infrastruktura',
     company: 'Ceska sporitelna',
     activityType: 'E-mail',
