@@ -85,7 +85,7 @@ function OpportunityRow({
           <span>{opportunity.phase}</span>
         </div>
         <p>
-          {opportunity.company} <span>|</span> {opportunity.activityType} - {opportunity.lastActivityDate}
+          {opportunity.company} <span>|</span> {opportunity.code}
         </p>
       </div>
       <div className="value-cell">{formatCurrency(opportunity.value)}</div>
