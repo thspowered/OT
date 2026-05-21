@@ -202,11 +202,15 @@
 
 .opportunity-row {
   display: grid;
-  grid-template-columns: 28px minmax(82px, 108px) minmax(220px, 1.8fr) minmax(104px, 0.7fr) minmax(126px, 0.8fr) minmax(78px, 0.45fr) minmax(176px, 1fr);
+  grid-template-columns: 28px 108px minmax(260px, 1fr) max-content minmax(156px, max-content) 92px minmax(420px, max-content);
   align-items: center;
   gap: 14px;
   border-bottom: 1px solid var(--border-soft);
   padding: 14px 18px;
+}
+
+.opportunity-row > div {
+  min-width: 0;
 }
 
 .opportunity-row:last-child {
@@ -309,6 +313,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  white-space: nowrap;
 }
 
 .owner-cell span {
@@ -352,6 +357,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  flex-wrap: wrap;
   gap: 8px;
 }
 
@@ -424,6 +430,7 @@
   .row-actions button:nth-child(2),
   .row-actions button:nth-child(3) {
     width: 38px;
+    flex: 0 0 38px;
     padding: 0;
   }
 
