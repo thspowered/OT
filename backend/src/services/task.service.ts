@@ -59,5 +59,20 @@ export class TaskService {
         return tasks.filter(task => task.bussinessCaseId === businessCaseId);
     }   
 
+    public async updateTask(taskId: number, updatedData: Partial<TaskDTO>): Promise<TaskDTO | null> {
+        const tasks = await this.getAllTasks();
+        const taskIndex = tasks.findIndex(task => task.id === taskId);
+        
+        if (taskIndex === -1) {
+            return null;
+        }
+        
+        const updatedTask = { ...tasks[taskIndex], ...updatedData };
+        tasks[taskIndex] = updatedTask;
+        await fs.writeFile(this.dataPath, JSON.stringify(tasks, null, 2));
+        
+        return updatedTask;
+    }
+
 }
 

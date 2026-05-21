@@ -49,21 +49,39 @@
     "bussinessCaseId": 100
   },
   {
-    "id": 1779355326193,
-    "title": "dadas",
-    "description": "adsdas",
-    "dueDate": "2026-05-29T09:22:00.000Z",
+    "id": 1779354216299,
+    "title": "Primo k necemu",
+    "description": "Napsat endpointy pro ukládání a načítání tasků z JSON souboru.",
+    "dueDate": "2026-05-25T12:00:00Z",
     "completed": false,
-    "taskType": "Call",
-    "bussinessCaseId": 225
+    "taskType": "WORK",
+    "bussinessCaseId": 100
   },
   {
-    "id": 1779355373386,
-    "title": "adasdasdasdasd",
-    "description": "asasdasda",
-    "dueDate": "2026-05-22T09:22:00.000Z",
+    "id": 1779354224115,
+    "title": "test",
+    "description": "Napsat endpointy pro ukládání a načítání tasků z JSON souboru.",
+    "dueDate": "2026-05-25T12:00:00Z",
     "completed": false,
-    "taskType": "Other",
-    "bussinessCaseId": 225
+    "taskType": "WORK",
+    "bussinessCaseId": 100
+  },
+  {
+    "id": 1779354227847,
+    "title": "test2",
+    "description": "Napsat endpointy pro ukládání a načítání tasků z JSON souboru.",
+    "dueDate": "2026-05-25T12:00:00Z",
+    "completed": false,
+    "taskType": "WORK",
+    "bussinessCaseId": 101
+  },
+  {
+    "id": 1779354235510,
+    "title": "UPDAtED",
+    "description": "Napsat endpointy pro ukládání a načítání tasků z JSON souboru.",
+    "dueDate": "2026-05-25T12:00:00Z",
+    "completed": false,
+    "taskType": "WORK",
+    "bussinessCaseId": 102
   }
 ]

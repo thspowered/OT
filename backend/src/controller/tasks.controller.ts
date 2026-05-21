@@ -38,3 +38,22 @@ export const getTasksByBusinessCaseId = async (req: Request, res: Response) => {
         res.status(500).json({ success: false, error: 'Internal server error while fetching tasks by business case ID' });
     }
 };
+
+export const updateTask = async (req: Request, res: Response) => {
+    try {
+        const taskId = parseInt(req.params.taskId, 10);
+        console.log('Updating task with ID:', taskId);
+        const updatedData = req.body;
+        const updatedTask = await taskService.updateTask(taskId, updatedData);
+        
+        if (updatedTask) {
+            res.status(200).json({ success: true, data: updatedTask });
+        } else {
+            res.status(404).json({ success: false, error: 'Task not found' });
+        }
+    }
+    catch (error) {
+        console.error('Error updating task:', error);
+        res.status(500).json({ success: false, error: 'Internal server error while updating task' });
+    }
+}
